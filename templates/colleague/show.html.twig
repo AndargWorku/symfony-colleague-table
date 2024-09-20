@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Colleague{% endblock %}
+
+{% block body %}
+    <h1>Colleague</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ colleague.id }}</td>
+            </tr>
+            <tr>
+                <th>Colleague</th>
+                <td>{{ colleague.colleague }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ colleague.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_colleague_index') }}">back to list</a>
+
+    <a href="{{ path('app_colleague_edit', {'id': colleague.id}) }}">edit</a>
+
+    {{ include('colleague/_delete_form.html.twig') }}
+{% endblock %}

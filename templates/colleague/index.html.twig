@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Colleague index{% endblock %}
+
+{% block body %}
+    <h1>Colleague index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Colleague</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for colleague in colleagues %}
+            <tr>
+                <td>{{ colleague.id }}</td>
+                <td>{{ colleague.colleague }}</td>
+                <td>{{ colleague.description }}</td>
+                <td>
+                    <a href="{{ path('app_colleague_show', {'id': colleague.id}) }}">show</a>
+                    <a href="{{ path('app_colleague_edit', {'id': colleague.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_colleague_new') }}">Create new</a>
+{% endblock %}
